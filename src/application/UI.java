@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-import chess.ChessMath;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.ChessPosition;
 import chess.Color;
@@ -52,21 +52,21 @@ public class UI {
 		}
 	}
 	
-	public static void printMath(ChessMath chessMath, List<ChessPiece> captured) {
-		printBoard(chessMath.getPiece());
+	public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured) {
+		printBoard(chessMatch.getPiece());
 		System.out.println();
 		printCapturedPieces(captured);
 		System.out.println();
-		System.out.println("Turn : " + chessMath.getTurn());
-		if (!chessMath.getCheckMate()) {
-		System.out.println("Waiting player: " + chessMath.getCurrentPlayer());
-		if(chessMath.getCheck()) {
+		System.out.println("Turn : " + chessMatch.getTurn());
+		if (!chessMatch.getCheckMate()) {
+		System.out.println("Waiting player: " + chessMatch.getCurrentPlayer());
+		if(chessMatch.getCheck()) {
 			System.out.println("CHECK!");
 		}
 	}
 		else {
 			System.out.println("CHECKMATE!");
-			System.out.println("Winner: " + chessMath.getCurrentPlayer());
+			System.out.println("Winner: " + chessMatch.getCurrentPlayer());
 		}
 	}
 	public static void printBoard(ChessPiece[][] pieces) {

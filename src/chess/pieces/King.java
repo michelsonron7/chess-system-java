@@ -2,17 +2,17 @@ package chess.pieces;
 
 import boardgame.Board;
 import boardgame.Position;
-import chess.ChessMath;
+import chess.ChessMatch;
 import chess.ChessPiece;
 import chess.Color;
 
 public class King extends ChessPiece {
 	
-	private ChessMath chessMath;
+	private ChessMatch chessMatch;
 	
-	public King(Board board, Color color, ChessMath chessMath) {
+	public King(Board board, Color color, ChessMatch chessMatch) {
 		super(board, color);
-		this.chessMath = chessMath;
+		this.chessMatch = chessMatch;
 	}
 	@Override
 	public String toString() {
@@ -76,7 +76,7 @@ public class King extends ChessPiece {
 		}
 		
 		// SpecialMove castling
-		if (getMoveCount() == 0 && !chessMath.getCheck()) {
+		if (getMoveCount() == 0 && !chessMatch.getCheck()) {
 			// SpecialMove castling Kingside rook
 			Position posT1 = new Position(position.getRow(), position.getColumn() + 3);
 			if (testRookCastling(posT1)) {
